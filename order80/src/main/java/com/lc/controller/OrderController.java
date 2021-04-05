@@ -16,7 +16,8 @@ import java.util.Map;
 @RequestMapping("/api/consumer/order")
 public class OrderController {
 
-    private static final String PAYMENT_URL = "http://127.0.0.1:8001";
+    //private static final String PAYMENT_URL = "http://127.0.0.1:8001";
+    private static final String PAYMENT_URL = "http://cloud-payment-service";
 
     @Autowired
     private RestTemplate restTemplate;
