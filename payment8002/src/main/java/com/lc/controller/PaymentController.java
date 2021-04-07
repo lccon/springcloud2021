@@ -31,4 +31,10 @@ public class PaymentController {
         Payment payment = paymentService.getPaymentById(id);
         return new CommonResult(200, "获取详情成功" + serverPort, payment);
     }
+
+    @GetMapping("/getPaymentSp")
+    @ResponseBody
+    public String getPaymentSp() {
+        return serverPort;
+    }
 }
