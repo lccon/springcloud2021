@@ -24,4 +24,9 @@ public class OrderOpenFeignController {
     public CommonResult insertPaymentFeign(Payment payment) {
         return paymentFeignService.insertPayment(payment);
     }
+
+    @GetMapping("/paymentFeignTimeout")
+    public String paymentFeignTimeout() {
+        return paymentFeignService.paymentFeignTimeout();
+    }
 }

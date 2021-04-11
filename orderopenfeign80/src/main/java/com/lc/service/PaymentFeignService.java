@@ -10,10 +10,14 @@ import org.springframework.web.bind.annotation.*;
 @FeignClient(value = "cloud-payment-service")
 public interface PaymentFeignService {
 
-    @GetMapping("/api/payment/getPaymentById")
-    CommonResult getPaymentById(Long id);
-
     @GetMapping("/api/payment/insertPayment")
     CommonResult insertPayment(Payment payment);
 
+    @GetMapping("/api/payment/paymentFeignTimeout")
+    String paymentFeignTimeout();
+
+    @GetMapping("/api/payment/getPaymentById")
+    CommonResult getPaymentById(@RequestParam(value = "id") Long id);
 }
+
+

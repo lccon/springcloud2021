@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.TimeUnit;
+
 @Controller
 @RequestMapping("/api/payment")
 public class PaymentController {
@@ -35,6 +37,17 @@ public class PaymentController {
     @GetMapping("/getPaymentSp")
     @ResponseBody
     public String getPaymentSp() {
+        return serverPort;
+    }
+
+    @GetMapping("/paymentFeignTimeout")
+    @ResponseBody
+    public String paymentFeignTimeout() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return serverPort;
     }
 }
